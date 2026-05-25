@@ -69,7 +69,7 @@ def executar_processo(params_json):
     """
     try:
         print("Iniciando processamento principal do bot...")
-        print("BOT Teste Version: 1.0.0")
+        print("BOT Teste Version: 1.50.0")
 
         email = params_json["dados_acesso"]["email"]
         senha = params_json["dados_acesso"]["senha"]
