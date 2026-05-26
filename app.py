@@ -33,6 +33,7 @@ def ler_payload_task():
             raise FileNotFoundError(f"Arquivo de payload não encontrado: {task_file}")
 
         with path.open("r", encoding="utf-8") as f:
+            print('path: ',path)
             return json.load(f)
 
     except Exception as e:
@@ -48,6 +49,7 @@ def extrair_parametros(payload):
 
     O campo parameter_value normalmente vem como string JSON.
     """
+    print('Extrair_parametros:' ,payload)
     try:
         if "parameters" not in payload or not payload["parameters"]:
             raise ValueError("Payload não possui parâmetros.")
@@ -102,6 +104,7 @@ def main():
     print("INICIANDO BOT PELO ORQUESTRADOR")
 
     payload = ler_payload_task()
+    print('payload: ',payload)
     params_json = extrair_parametros(payload)
     resultado = executar_processo(params_json)
 
